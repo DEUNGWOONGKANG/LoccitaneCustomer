@@ -17,7 +17,7 @@ public class CouponServiceImpl implements CouponService {
 	
 	@Override
 	public List<CouponVO> getUserCoupon(String userid) throws Exception {
-		return null;
+		return dao.getUserCoupon(userid);
 	}
 	
 }

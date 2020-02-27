@@ -18,6 +18,10 @@ public class UserVO {
 	private Date lastupdate;
 	private int totalbuy;
 	private String alarmyn;
+	private Date secondvisit_1;
+	private Date secondvisit_2;
+	private Date secondvisit_3;
+	private Date secondvisit_4;
 	
 	public UserVO() {}
 
@@ -139,6 +143,38 @@ public class UserVO {
 
 	public void setAlarmyn(String alarmyn) {
 		this.alarmyn = alarmyn;
+	}
+
+	public Date getSecondvisit_1() {
+		return secondvisit_1;
+	}
+
+	public void setSecondvisit_1(Date secondvisit_1) {
+		this.secondvisit_1 = secondvisit_1;
+	}
+
+	public Date getSecondvisit_2() {
+		return secondvisit_2;
+	}
+
+	public void setSecondvisit_2(Date secondvisit_2) {
+		this.secondvisit_2 = secondvisit_2;
+	}
+
+	public Date getSecondvisit_3() {
+		return secondvisit_3;
+	}
+
+	public void setSecondvisit_3(Date secondvisit_3) {
+		this.secondvisit_3 = secondvisit_3;
+	}
+
+	public Date getSecondvisit_4() {
+		return secondvisit_4;
+	}
+
+	public void setSecondvisit_4(Date secondvisit_4) {
+		this.secondvisit_4 = secondvisit_4;
 	}
 
 }

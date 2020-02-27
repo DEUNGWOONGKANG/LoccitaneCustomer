@@ -20,6 +20,7 @@ public class CouponVO {
 	private String couponinfo;
 	private int useminimum;
 	private int discountmax;
+	private String reason;
 	
 	public CouponVO() {}
 
@@ -149,6 +150,14 @@ public class CouponVO {
 
 	public void setDiscountmax(int discountmax) {
 		this.discountmax = discountmax;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 
 }
