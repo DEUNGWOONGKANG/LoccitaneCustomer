@@ -17,8 +17,8 @@ public class CouponDAOImpl implements CouponDAO {
 	private static String namespace = "CouponMapper";
 
 	@Override
-	public List<CouponVO> getUserCoupon(String userid) throws Exception {
-		return sqlSession.selectList(namespace+".getCouponList", userid);
+	public List<CouponVO> getUserCoupon(String usercode) throws Exception {
+		return sqlSession.selectList(namespace+".getCouponList", usercode);
 	}
 	
 }

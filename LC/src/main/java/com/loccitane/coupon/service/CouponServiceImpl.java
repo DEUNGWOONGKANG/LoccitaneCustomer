@@ -16,8 +16,8 @@ public class CouponServiceImpl implements CouponService {
 	private CouponDAO dao;
 	
 	@Override
-	public List<CouponVO> getUserCoupon(String userid) throws Exception {
-		return dao.getUserCoupon(userid);
+	public List<CouponVO> getUserCoupon(String usercode) throws Exception {
+		return dao.getUserCoupon(usercode);
 	}
 	
 }

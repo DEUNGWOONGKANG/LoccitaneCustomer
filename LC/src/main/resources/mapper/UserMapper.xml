@@ -3,16 +3,16 @@
 
 <mapper namespace="UserMapper">
     
-    <!-- 랜딩페이지 고객 userid 체크 -->
+    <!-- 랜딩페이지 고객 usercode 체크 -->
     <select id="userCheck" resultType="com.loccitane.user.domain.UserVO">
         select * from userdata
-        where userid = #{userid} 
+        where usercode = #{usercode} 
     </select>
     
     <!-- 고객 로그인 -->
     <select id="userLogin" resultType="com.loccitane.user.domain.UserVO">
         select * from userdata
-        where userid = #{userid}
+        where usercode = #{usercode}
           and phone like '%'+#{phone}
     </select>
  

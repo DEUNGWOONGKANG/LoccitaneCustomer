@@ -4,14 +4,10 @@ import java.util.Date;
 
 public class UserVO {
 	private int userseq;
-	private String vipcode;
-	private String userid;
-	private String userpw;
+	private String usercode;
 	private String grade;
 	private String username;
-	private String store;
-	private String position;
-	private Date birthday;
+	private String birthday;
 	private String status;
 	private String phone;
 	private Date lastpurchase;
@@ -33,30 +29,6 @@ public class UserVO {
 		this.userseq = userseq;
 	}
 
-	public String getVipcode() {
-		return vipcode;
-	}
-
-	public void setVipcode(String vipcode) {
-		this.vipcode = vipcode;
-	}
-
-	public String getUserid() {
-		return userid;
-	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-
-	public String getUserpw() {
-		return userpw;
-	}
-
-	public void setUserpw(String userpw) {
-		this.userpw = userpw;
-	}
-
 	public String getGrade() {
 		return grade;
 	}
@@ -71,30 +43,6 @@ public class UserVO {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public String getStore() {
-		return store;
-	}
-
-	public void setStore(String store) {
-		this.store = store;
-	}
-
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
-
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
 	}
 
 	public String getStatus() {
@@ -176,5 +124,23 @@ public class UserVO {
 	public void setSecondvisit_4(Date secondvisit_4) {
 		this.secondvisit_4 = secondvisit_4;
 	}
+
+	public String getUsercode() {
+		return usercode;
+	}
+
+	public void setUsercode(String usercode) {
+		this.usercode = usercode;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	
+	
 
 }

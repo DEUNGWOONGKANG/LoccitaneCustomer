@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class CouponVO {
 	private int cptmseq;
-	private String userid;
+	private String usercode;
 	private String couponcode;
 	private String couponname;
 	private String discountkind;
@@ -32,12 +32,12 @@ public class CouponVO {
 		this.cptmseq = cptmseq;
 	}
 
-	public String getUserid() {
-		return userid;
+	public String getUsercode() {
+		return usercode;
 	}
 
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUsercode(String usercode) {
+		this.usercode = usercode;
 	}
 
 	public String getCouponcode() {

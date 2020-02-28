@@ -36,7 +36,7 @@ public class UserController {
             out.println("<script>alert('등록된 고객 정보가 없습니다.'); history.go(-1);</script>");
             out.flush();
 		}else { 
-			List<CouponVO> couponList = cpservice.getUserCoupon(userVO.getUserid()); 
+			List<CouponVO> couponList = cpservice.getUserCoupon(userVO.getUsercode()); 
 			nextView.addObject("userData", userData); 
 			nextView.addObject("couponList", couponList); 
 			nextView.addObject("tel", userVO.getPhone());
@@ -44,15 +44,15 @@ public class UserController {
 		return nextView;
 	}
 	
-	@RequestMapping("/check/{userid}") 
-	public ModelAndView checkUser(@PathVariable("userid") String userid) throws Exception  {
-		UserVO user = service.userCheck(userid);
+	@RequestMapping("/check/{usercode}") 
+	public ModelAndView checkUser(@PathVariable("usercode") String usercode) throws Exception  {
+		UserVO user = service.userCheck(usercode);
 		ModelAndView nextView = new ModelAndView("jsp/customerMain");
 		if(user == null) {
 			nextView.addObject("check", "N");
 		}else{
 			nextView.addObject("check", "Y");
-			nextView.addObject("userid", userid);
+			nextView.addObject("usercode", usercode);
 		}
 		return nextView;
 	}

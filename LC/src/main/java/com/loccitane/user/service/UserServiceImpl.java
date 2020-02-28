@@ -14,8 +14,8 @@ public class UserServiceImpl implements UserService {
 	private UserDAO dao;
 	
 	@Override
-	public UserVO userCheck(String userid) throws Exception {
-		return dao.userCheck(userid);
+	public UserVO userCheck(String usercode) throws Exception {
+		return dao.userCheck(usercode);
 	}
 
 	@Override

@@ -17,8 +17,8 @@ public class UserDAOImp implements UserDAO {
 	private static String namespace = "UserMapper";
 
 	@Override
-	public UserVO userCheck(String userid) throws Exception {
-		return sqlSession.selectOne(namespace+".userCheck", userid);
+	public UserVO userCheck(String usercode) throws Exception {
+		return sqlSession.selectOne(namespace+".userCheck", usercode);
 	}
 
 	@Override
