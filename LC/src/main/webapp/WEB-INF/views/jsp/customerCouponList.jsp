@@ -28,6 +28,12 @@ function usedN(){
 function usecoupon(){
 	document.getElementById("usecoupon").click();
 }
+function logout(){
+	var result = confirm("로그아웃 하시겠습니까?");
+	if(result){
+		location.href = "/user/logout/${usercode}";
+	}
+}
 </script>
 <link rel="stylesheet" href="/resources/css/lc_common.css">
 <link rel="stylesheet" href="/resources/css/bootstrap.css">
@@ -45,7 +51,8 @@ function usecoupon(){
 		<td width="10%">
 		</td>
 		<td style="text-align:center;">
-			<div class="infoTitle">${userData.username}[${tel}]</div>
+			<div class="infoTitle">${username}</div>
+			<input type="button" class="button-yellow" value="로그아웃" onclick="logout();">
 		</td>
 		<td width="10%">
 		</td>
@@ -86,7 +93,7 @@ function usecoupon(){
 		</td>
 	</tr>
 </table>
-<div style="width:100%" id="unuse">
+<div style="width:100%;margin-bottom:30px;" id="unuse">
 	<c:forEach var="coupon" items="${couponList}">
 	<c:if test="${coupon.useyn eq 'N' and coupon.startdate < today and coupon.enddate > today}">
 		<div id="container">
@@ -96,9 +103,21 @@ function usecoupon(){
 				<div class="triangle-r"></div>
 				<div class="info">
 					<h2>${coupon.couponinfo}</h2>
-					유효기간<br>
+					<c:if test="${!empty coupon.useminimum}">
+			      		${coupon.useminimum}원 이상 구매시
+			      	</c:if>
+			      	${coupon.discountvalue}
+			      	<c:if test="${coupon.discountkind == 1}">
+			      	원 할인
+			      	</c:if>
+			      	<c:if test="${coupon.discountkind == 2}">
+			      	% 할인
+			      	</c:if><br>
+			      	<c:if test="${!empty coupon.discountmax}">
+			      	(최대할인  ${coupon.discountmax}원 까지)
+			      	</c:if><br>
+					유효기간 : 
 					<fmt:formatDate value="${coupon.startdate}" pattern="YYYY-MM-dd"/> ~
-					<br>
 					<fmt:formatDate value="${coupon.enddate}" pattern="YYYY-MM-dd"/>
 				</div>
 			</div>
@@ -111,7 +130,7 @@ function usecoupon(){
 		</div>
 	</c:if>
 </div>
-<div style="width:100%" id="use">
+<div style="width:100%;margin-bottom:30px;" id="use">
 	<c:forEach var="coupon" items="${couponList}">
 	<c:if test="${coupon.useyn eq 'Y' or coupon.startdate > today or coupon.enddate < today}">
 		<div id="container">
@@ -121,9 +140,21 @@ function usecoupon(){
 				<div class="triangle-r"></div>
 				<div class="info">
 					<h2>${coupon.couponinfo}</h2>
-					유효기간<br>
+					<c:if test="${!empty coupon.useminimum}">
+			      		${coupon.useminimum}원 이상 구매시
+			      	</c:if>
+			      	${coupon.discountvalue}
+			      	<c:if test="${coupon.discountkind == 1}">
+			      	원 할인
+			      	</c:if>
+			      	<c:if test="${coupon.discountkind == 2}">
+			      	% 할인
+			      	</c:if>
+			      	<c:if test="${!empty coupon.discountmax}">
+			      	(최대할인  ${coupon.discountmax}원 까지)
+			      	</c:if><br>
+					유효기간 : 
 					<fmt:formatDate value="${coupon.startdate}" pattern="YYYY-MM-dd"/> ~
-					<br>
 					<fmt:formatDate value="${coupon.enddate}" pattern="YYYY-MM-dd"/>
 				</div>
 			</div>

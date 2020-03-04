@@ -7,17 +7,7 @@
 <title></title>
 <link rel="stylesheet" href="/resources/css/lc_common.css">
 <script type="text/javascript">
-function loadScript(){
-	if("${check}" == "N"){
-		alert("존재하지 않는 사용자ID입니다.");
-		var phone = document.getElementById("phone");
-		var submitbtn = document.getElementById("submitbtn");
-		
-		phone.style.background = "#EAEAEA";
-		phone.readOnly = true;
-		submitbtn.style.display = "none";
-	}
-}
+
 function check(){
 	var phone = document.getElementById("phone");
 	if(phone.value == "" || phone.value.length != 4){
@@ -31,7 +21,7 @@ function check(){
 
 </script>
 </head>
-<body leftmargin="0" rightmargin="0" topmargin="0" onload="loadScript();">
+<body leftmargin="0" rightmargin="0" topmargin="0">
 <div id="headline"></div>
 <div id="logo_div"><img id="logo" src="/resources/img/logo.png" width="50%"></div>
 <form id="loginForm" action="/user/login" method="post" onsubmit="return check()">
@@ -85,7 +75,7 @@ function check(){
 		<td width="5%">
 		</td>
 		<td width="90%" style="text-align:center;">
-			<input id="submitbtn" type="submit" class="button-yellow" value="확인">
+			<input id="submitbtn" type="button" class="button-yellow" value="확인">
 		</td>
 		<td width="5%">
 		</td>

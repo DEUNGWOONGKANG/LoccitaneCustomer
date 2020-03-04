@@ -6,10 +6,12 @@ import java.util.Date;
 public class CouponVO {
 	private int cptmseq;
 	private String usercode;
+	private String username;
 	private String couponcode;
 	private String couponname;
+	private String couponno;
 	private String discountkind;
-	private int discountvalue;
+	private String discountvalue;
 	private String createuser;
 	private Date createdate;
 	private String useyn;
@@ -18,11 +20,21 @@ public class CouponVO {
 	private Date startdate;
 	private Date enddate;
 	private String couponinfo;
-	private int useminimum;
-	private int discountmax;
+	private String useminimum;
+	private String discountmax;
 	private String reason;
 	
 	public CouponVO() {}
+
+	
+	public String getCouponno() {
+		return couponno;
+	}
+
+
+	public void setCouponno(String couponno) {
+		this.couponno = couponno;
+	}
 
 	public int getCptmseq() {
 		return cptmseq;
@@ -64,11 +76,11 @@ public class CouponVO {
 		this.discountkind = discountkind;
 	}
 
-	public int getDiscountvalue() {
+	public String getDiscountvalue() {
 		return discountvalue;
 	}
 
-	public void setDiscountvalue(int discountvalue) {
+	public void setDiscountvalue(String discountvalue) {
 		this.discountvalue = discountvalue;
 	}
 
@@ -136,19 +148,19 @@ public class CouponVO {
 		this.couponinfo = couponinfo;
 	}
 
-	public int getUseminimum() {
+	public String getUseminimum() {
 		return useminimum;
 	}
 
-	public void setUseminimum(int useminimum) {
+	public void setUseminimum(String useminimum) {
 		this.useminimum = useminimum;
 	}
 
-	public int getDiscountmax() {
+	public String getDiscountmax() {
 		return discountmax;
 	}
 
-	public void setDiscountmax(int discountmax) {
+	public void setDiscountmax(String discountmax) {
 		this.discountmax = discountmax;
 	}
 
@@ -158,6 +170,14 @@ public class CouponVO {
 
 	public void setReason(String reason) {
 		this.reason = reason;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }
