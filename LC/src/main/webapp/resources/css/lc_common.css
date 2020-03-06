@@ -51,7 +51,7 @@ ol, ul {
 
 div#container {
 	margin: 50px auto 0px auto; /* centered */
-	width: 400px;
+	width: 100%;
 }
 
 .menu {
@@ -111,7 +111,7 @@ div#container {
 .bubble {
 	clear: both;
 	margin: 0px auto;
-	width: 350px;
+	width: 70%;
 	background: #fff;
 	-moz-border-radius: 10px;
   -khtml-border-radius: 10px;
@@ -125,7 +125,7 @@ div#container {
 .bubble2 {
 	clear: both;
 	margin: 0px auto;
-	width: 350px;
+	width: 70%;
 	background: #EAEAEA;
 	-moz-border-radius: 10px;
   -khtml-border-radius: 10px;
@@ -140,7 +140,7 @@ div#container {
 .rectangle {
 	background: #ffcb00;
 	height: 50px;
-	width: 380px;
+	width: 105%;
 	position: relative;
 	left:-15px;
 	top: 30px;
@@ -153,9 +153,9 @@ div#container {
 }
 
 .rectangle h2 {
-	font-size: 15px;
+	font-size: 25px;
 	color: #000;
-	padding-top: 12px;
+	padding-top: 7px;
 	text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 	text-align: center;
 }
@@ -179,18 +179,19 @@ div#container {
 	height:0px;
 	width:0px;
 	position: relative;
-	left: 350px;
+	left: 100%;
 	top: 35px;
 	z-index: -1; /* displayed under bubble */
 }
 
 .info {
 	padding: 30px 25px 35px 25px;
-	font-size:15px;
+	font-size:30px;
+	height:250px;
 }
 
 .info h2 {
-	font-size: 20px;
+	font-size: 40px;
 	font-weight:bold;
 }
 
