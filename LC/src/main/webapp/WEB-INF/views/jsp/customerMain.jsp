@@ -61,7 +61,7 @@ function check(){
 		<td width="5%">
 		</td>
 		<td width="90%" style="text-align:center;">
-				<input type="password" class="endNumInput" id="phone" name="phone" style="width:70%;height:100px;">
+				<input type="number" class="endNumInput" id="phone" name="phone" style="width:70%;height:100px;font-size:40px;text-align:center;">
 				<input type="hidden" value="${usercode}" id="usercode" name="usercode">
 		</td>
 		<td width="5%">
@@ -75,7 +75,7 @@ function check(){
 		<td width="5%">
 		</td>
 		<td width="90%" style="text-align:center;">
-			<input id="submitbtn" type="button" class="button-yellow" value="확인">
+			<input id="submitbtn" type="submit" class="button-yellow" value="확인">
 		</td>
 		<td width="5%">
 		</td>
