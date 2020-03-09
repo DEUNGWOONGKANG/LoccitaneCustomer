@@ -36,7 +36,8 @@ public class UserController {
 		 try {
 	        CloseableHttpClient httpclient = HttpClients.createDefault();
 	        //GET 방식으로 parameter를 전달
-	        HttpGet httpGet = new HttpGet("http://localhost:8081/customer/login?code="+request.getParameter("usercode")+"&phone="+request.getParameter("phone"));
+	        //HttpGet httpGet = new HttpGet("http://localhost:8081/customer/login?code="+request.getParameter("usercode")+"&phone="+request.getParameter("phone"));
+	        HttpGet httpGet = new HttpGet("http://14.52.9.171:8080/customer/login?code="+request.getParameter("usercode")+"&phone="+request.getParameter("phone"));
 	        CloseableHttpResponse res = httpclient.execute(httpGet);
 	        try {
 	            String data = EntityUtils.toString(res.getEntity(), "UTF-8");
