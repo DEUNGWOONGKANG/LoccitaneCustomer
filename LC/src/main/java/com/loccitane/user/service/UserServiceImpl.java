@@ -22,5 +22,10 @@ public class UserServiceImpl implements UserService {
 	public UserVO userLogin(UserVO userVO) throws Exception {
 		return dao.userLogin(userVO);
 	}
+	
+	@Override
+	public int userAgree(UserVO userVO) throws Exception {
+		return dao.userAgree(userVO);
+	}
 
 }

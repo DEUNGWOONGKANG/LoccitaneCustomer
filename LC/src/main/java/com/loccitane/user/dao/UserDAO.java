@@ -6,5 +6,7 @@ public interface UserDAO {
 	 public UserVO userCheck(String usercode) throws Exception;
 	 
 	 public UserVO userLogin(UserVO userVO) throws Exception;
+
+	 public int userAgree(UserVO userVO) throws Exception;
 	 
 }

@@ -18,6 +18,7 @@ public class UserVO {
 	private Date secondvisit_2;
 	private Date secondvisit_3;
 	private Date secondvisit_4;
+	private String agreeyn;
 	
 	public UserVO() {}
 
@@ -140,7 +141,13 @@ public class UserVO {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
-	
-	
+
+	public String getAgreeyn() {
+		return agreeyn;
+	}
+
+	public void setAgreeyn(String agreeyn) {
+		this.agreeyn = agreeyn;
+	}
 
 }

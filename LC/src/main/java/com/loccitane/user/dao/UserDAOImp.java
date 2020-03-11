@@ -26,4 +26,11 @@ public class UserDAOImp implements UserDAO {
 		return sqlSession.selectOne(namespace+".userLogin", userVO);
 	}
 	
+	@Override
+	public int userAgree(UserVO userVO) throws Exception {
+		int result = sqlSession.update(namespace+".userAgree", userVO);
+		return result;
+		
+	}
+	
 }

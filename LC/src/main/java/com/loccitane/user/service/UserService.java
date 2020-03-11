@@ -7,4 +7,6 @@ public interface UserService {
 	public UserVO userCheck(String usercode) throws Exception;
 		
 	public UserVO userLogin(UserVO userVO) throws Exception;
+
+	int userAgree(UserVO userVO) throws Exception;
 }

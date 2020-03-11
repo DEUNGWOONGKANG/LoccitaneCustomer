@@ -31,7 +31,7 @@ function usecoupon(){
 function logout(){
 	var result = confirm("로그아웃 하시겠습니까?");
 	if(result){
-		location.href = "/user/logout/${usercode}";
+		location.href = "/user/logout/${userData.usercode}";
 	}
 }
 </script>
@@ -41,6 +41,9 @@ function logout(){
 </head>
 <body leftmargin="0" rightmargin="0" topmargin="0" onload="usecoupon()">
 <div id="headline"></div>
+<div id="logoutdiv">
+<input type="button" class="button-gray" value="로그아웃" onclick="logout();">
+</div>
 <div id="logo_div"><img id="logo" src="/resources/img/logo.png" width="30%"></div>
 <table style="width:100%">
 	<tr>
@@ -51,8 +54,7 @@ function logout(){
 		<td width="10%">
 		</td>
 		<td style="text-align:center;">
-			<div class="infoTitle">${username}</div>
-			<input type="button" class="button-yellow" value="로그아웃" onclick="logout();">
+			<div class="infoTitle">[${tel}]님께서 발급받으신 <span style="color:red;">쿠폰</span> 내역 입니다.</div>
 		</td>
 		<td width="10%">
 		</td>
@@ -66,7 +68,6 @@ function logout(){
 		</td>
 		<td style="text-align:center;">
 			<div class="infotext">
-				<b>님께서 발급받으신 <span style="color:red;">쿠폰</span> 내역 입니다.</b>
 			</div>
 		</td>
 		<td width="10%">

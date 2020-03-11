@@ -4,7 +4,7 @@
     
     <!-- 고객 쿠폰 리스트 -->
     <select id="getCouponList" resultType="com.loccitane.coupon.domain.CouponVO">
-        select * from v_coupontomember
+        select * from V_COUPONTOMEMBER
         where usercode = #{usercode} 
         order by enddate DESC
     </select>
