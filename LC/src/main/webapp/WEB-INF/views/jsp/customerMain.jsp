@@ -5,7 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title></title>
-<link rel="stylesheet" href="/resources/css/lc_common.css">
+<link rel="stylesheet" href="/resources/css/lc_common.css" type="text/css">
 <script type="text/javascript">
 
 function check(){

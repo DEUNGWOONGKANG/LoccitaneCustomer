@@ -9,7 +9,6 @@
 <title></title>
 <script src="/resources/js/jquery-3.4.1.min.js"></script>
 <script src="/resources/js/bootstrap.js"></script>
-<script src="/resources/css/lc_common.css"></script>
 <script type="text/javascript">
 function usedY(){
 	var useY = document.getElementById("use");
@@ -32,6 +31,11 @@ function logout(){
 	var result = confirm("로그아웃 하시겠습니까?");
 	if(result){
 		location.href = "/user/logout/${userData.usercode}";
+	}
+}
+function click(use){
+	if(use == "Y"){
+		document.getElementById("useYY")
 	}
 }
 </script>
@@ -82,10 +86,10 @@ function logout(){
 		</td>
 		<td style="width:80%; text-align:center">
 			<div class="btn-group btn-group-toggle" data-toggle="buttons" style="width:100%">
-				<label class="btn btn-warning btn-lg">
+				<label id="useYY" class="btn btn-warning btn-lg active">
 					<input type="radio" name="jb-radio" id="usecoupon" onclick="usedY()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>사용가능</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</label>
-				<label class="btn btn-warning btn-lg">
+				<label id="useNN" class="btn btn-warning btn-lg active">
 					<input type="radio" name="jb-radio" id="unusecoupon" onclick="usedN()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>사용만료</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</label>
 			</div>
@@ -150,7 +154,7 @@ function logout(){
 			      	</c:if>
 			      	<c:if test="${coupon.discountkind == 2}">
 			      	% 할인
-			      	</c:if>
+			      	</c:if><br>
 			      	<c:if test="${!empty coupon.discountmax}">
 			      	(최대할인  ${coupon.discountmax}원 까지)
 			      	</c:if><br>
