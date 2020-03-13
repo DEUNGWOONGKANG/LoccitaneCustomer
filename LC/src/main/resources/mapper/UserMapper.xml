@@ -13,7 +13,7 @@
     <select id="userLogin" resultType="com.loccitane.user.domain.UserVO">
         select * from USERDATA
         where usercode = #{usercode}
-          and phone like CONCAT('%',#{phone})
+          and phone = #{phone}
     </select>
     
     <update id="userAgree" parameterType="com.loccitane.user.domain.UserVO">
