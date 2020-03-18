@@ -21,5 +21,10 @@
     	set agreeyn = #{agreeyn}
     	where userseq = #{userseq}
     </update>
- 
+ 	
+ 	<insert id="userSave" parameterType="com.loccitane.user.domain.UserVO">
+		insert into USERDATA (usercode, phone, agreeyn)
+		values (#{usercode},#{phone},#{agreeyn})
+	</insert>
+
 </mapper>

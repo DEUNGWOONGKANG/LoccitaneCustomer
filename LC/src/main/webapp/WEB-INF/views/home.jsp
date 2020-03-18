@@ -5,8 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title></title>
-<link rel="stylesheet" href="/resources/css/lc_common.css">
-
+<link rel="stylesheet" href="/resources/css/lc_common.css" type="text/css">
 </head>
 <body leftmargin="0" rightmargin="0" topmargin="0">
 <div id="headline"></div>
@@ -21,21 +20,15 @@
 		<td width="5%">
 		</td>
 		<td>
-			<div class="infoTitle">휴대폰 뒷 번호 4자리를 입력하세요.</div>
 		</td>
 		<td width="5%">
-		</td>
-	</tr>
-	<tr>
-		<td colspan=3 height="50px">
 		</td>
 	</tr>
 	<tr>
 		<td width="5%">
 		</td>
 		<td>
-			<div id="infoText">고객 확인을 위해 본인의 휴대폰 뒷 번호 4자리를 입력하세요.
-			<br>입력 후 쿠폰 확인 페이지로 이동합니다.</div>
+			<div id="infoText" style="text-align:center"><h2>록시땅의 새로운 멤버십 프로그램을 위해 <br>준비 중입니다.</h2></div>
 		</td>
 		<td width="5%">
 		</td>
@@ -48,7 +41,6 @@
 		<td width="5%">
 		</td>
 		<td width="90%" style="text-align:center;">
-				<input type="password" class="endNumInput" id="phone" name="phone" style="width:70%;height:100px;">
 		</td>
 		<td width="5%">
 		</td>
@@ -61,7 +53,6 @@
 		<td width="5%">
 		</td>
 		<td width="90%" style="text-align:center;">
-			<input id="submitbtn" type="submit" class="button-yellow" value="확인">
 		</td>
 		<td width="5%">
 		</td>

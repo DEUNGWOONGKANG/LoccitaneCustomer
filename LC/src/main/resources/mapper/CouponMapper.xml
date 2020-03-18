@@ -3,10 +3,103 @@
 <mapper namespace="CouponMapper">
     
     <!-- 고객 쿠폰 리스트 -->
-    <select id="getCouponList" resultType="com.loccitane.coupon.domain.CouponVO">
+    <select id="getUserCouponList" resultType="com.loccitane.coupon.domain.CouponVO">
         select * from V_COUPONTOMEMBER
         where usercode = #{usercode} 
         order by enddate DESC
     </select>
+    
+    <!-- 전체 쿠폰 리스트 -->
+    <select id="getCouponList" resultType="com.loccitane.coupon.domain.CouponCoreVO">
+        select * from COUPON
+    </select>
+    
+    <!-- 쿠폰데이터가져오기 -->
+    <select id="getCouponInfo" resultType="com.loccitane.coupon.domain.CouponCoreVO">
+        select * from COUPON
+        where couponcode = #{couponcode}
+    </select>
+    
+    <!-- 사용자별쿠폰데이터가져오기 -->
+    <select id="getCoupontomember" resultType="com.loccitane.coupon.domain.CouponVO">
+        select * from COUPONTOMEMBER
+        where couponno = #{couponNo}
+    </select>
+    
+    <insert id="couponSave" parameterType="com.loccitane.coupon.domain.CouponCoreVO">
+		insert into COUPON (
+			couponcode, 
+			couponname, 
+			discountkind,
+			discountvalue,
+			useminimum,
+			discountmax,
+			useyn,
+			couponinfo,
+			createuser,
+			createdate)
+		values (
+			#{couponcode},
+			#{couponname},
+			#{discountkind},
+			#{discountvalue},
+			#{useminimum},
+			#{discountmax},
+			#{useyn},
+			#{couponinfo},
+			#{createuser},
+			#{createdate}
+		)
+	</insert>
+	
+	<insert id="coupontomemberSave" parameterType="com.loccitane.coupon.domain.CouponVO">
+		insert into COUPONTOMEMBER (
+			usercode, 
+			couponcode,
+			couponno, 
+			createdate,
+			createuser,
+			reason,
+			startdate,
+			enddate,
+			useyn,
+			usemanager,
+			usedate
+			)
+		values (
+			#{usercode},
+			#{couponcode},
+			#{couponno},
+			#{createdate},
+			#{createuser},
+			#{reason},
+			#{startdate},
+			#{enddate},
+			#{useyn},
+			#{usemanager},
+			#{usedate}
+		)
+	</insert>
+	
+	 <update id="couponUpdate" parameterType="com.loccitane.coupon.domain.CouponCoreVO">
+		update COUPON set
+			couponnamme = #{couponname},  
+			discountkind = #{discountkind},
+			discountvalue = #{discountvalue},
+			useminimum = #{useminimum},
+			discountmax = #{discountmax},
+			useyn = #{useyn},
+			couponinfo = #{couponinfo}
+			where 
+			couponcode = #{couponcode}
+	</update>
+	<update id="coupontomemberUpdate" parameterType="com.loccitane.coupon.domain.CouponVO">
+		update COUPONTOMEMBER set
+			useyn = #{useyn},
+			usemanager = #{usemanager},
+			usedate = #{usedate}
+			where 
+			couponno = #{couponno}
+	</update>
     
 </mapper>

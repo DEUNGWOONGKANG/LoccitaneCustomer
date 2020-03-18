@@ -33,7 +33,7 @@ public class UserController {
 		if(userData == null) { 
 			response.setContentType("text/html; charset=UTF-8");
             PrintWriter out = response.getWriter();
-            out.println("<script>alert('등록된 고객 정보가 없습니다.'); history.go(-1);</script>");
+            out.println("<script>alert('올바르지 않은 접속 경로 입니다. 가까운 매장 혹은 록시땅 고객센터(02-2054-0500)으로 연락 주시기 바랍니다.'); history.go(-1);</script>");
             out.flush();
 		}else { 
 			if(userData.getAgreeyn().equals("Y")) {
@@ -70,7 +70,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/{usercode}", method = RequestMethod.GET)
 	public ModelAndView checkUser(@PathVariable("usercode") String usercode){
-		ModelAndView nextView = new ModelAndView("jsp/customerMain");
+		ModelAndView nextView = new ModelAndView("jsp/customerMain_bak");
 		nextView.addObject("usercode", usercode);
 		return nextView;
 	}

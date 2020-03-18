@@ -9,4 +9,6 @@ public interface UserDAO {
 
 	 public int userAgree(UserVO userVO) throws Exception;
 	 
+	 public int userSave(UserVO userVO) throws Exception;
+	 
 }

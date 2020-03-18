@@ -9,4 +9,6 @@ public interface UserService {
 	public UserVO userLogin(UserVO userVO) throws Exception;
 
 	int userAgree(UserVO userVO) throws Exception;
+	
+	int userSave(UserVO userVO) throws Exception;
 }

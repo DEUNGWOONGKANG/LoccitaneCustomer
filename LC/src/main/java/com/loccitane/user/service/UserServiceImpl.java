@@ -28,4 +28,11 @@ public class UserServiceImpl implements UserService {
 		return dao.userAgree(userVO);
 	}
 
+	@Override
+	public int userSave(UserVO userVO) throws Exception {
+		return dao.userSave(userVO);
+	}
+	
+	
+
 }
