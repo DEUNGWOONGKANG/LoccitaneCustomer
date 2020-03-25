@@ -1,10 +1,15 @@
 package com.loccitane.user.domain;
 
+import java.util.Date;
+
 public class UserVO {
 	private int userseq;
 	private String usercode;
 	private String phone;
 	private String agreeyn;
+	private String infoview;
+	private Date startdate;
+	private Date enddate;
 	
 	public UserVO() {}
 
@@ -39,5 +44,31 @@ public class UserVO {
 	public void setAgreeyn(String agreeyn) {
 		this.agreeyn = agreeyn;
 	}
+
+	public String getInfoview() {
+		return infoview;
+	}
+
+	public void setInfoview(String infoview) {
+		this.infoview = infoview;
+	}
+
+	public Date getStartdate() {
+		return startdate;
+	}
+
+	public void setStartdate(Date startdate) {
+		this.startdate = startdate;
+	}
+
+	public Date getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(Date enddate) {
+		this.enddate = enddate;
+	}
+	
+	
 
 }

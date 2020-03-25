@@ -26,5 +26,14 @@
 		insert into USERDATA (usercode, phone, agreeyn)
 		values (#{usercode},#{phone},#{agreeyn})
 	</insert>
+	
+	<update id="userUpdate" parameterType="com.loccitane.user.domain.UserVO">
+    	update USERDATA
+    	set phone = #{phone}
+    	,agreeyn = #{agreeyn}
+    	,startdate = #{startdate} 
+    	,enddate = #{enddate}
+    	where userseq = #{userseq}
+    </update>
 
 </mapper>

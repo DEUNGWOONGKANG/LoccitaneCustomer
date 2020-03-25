@@ -28,14 +28,18 @@ public class UserDAOImp implements UserDAO {
 	
 	@Override
 	public int userAgree(UserVO userVO) throws Exception {
-		int result = sqlSession.update(namespace+".userAgree", userVO);
-		return result;
+		return sqlSession.update(namespace+".userAgree", userVO);
 		
 	}
 
 	@Override
 	public int userSave(UserVO userVO) throws Exception {
 		return sqlSession.insert(namespace+".userSave", userVO);
+	}
+
+	@Override
+	public int userUpdate(UserVO userData) {
+		return sqlSession.update(namespace+".userUpdate", userData);
 	}
 	
 }

@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService {
 	public int userSave(UserVO userVO) throws Exception {
 		return dao.userSave(userVO);
 	}
+
+	@Override
+	public int userUpdate(UserVO userData) {
+		return dao.userUpdate(userData);
+	}
 	
 	
 

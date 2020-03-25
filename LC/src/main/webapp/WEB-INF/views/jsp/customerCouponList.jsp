@@ -48,7 +48,7 @@ function click(use){
 <div id="logoutdiv">
 <input type="button" class="button-gray" value="로그아웃" onclick="logout();">
 </div>
-<div id="logo_div"><img id="logo" src="/resources/img/logo.png" width="30%"></div>
+<div id="logo_div"><img id="logo" src="/resources/img/logo.png" width="50%"></div>
 <table style="width:100%">
 	<tr>
 		<td colspan=3 height="50px">
@@ -86,10 +86,10 @@ function click(use){
 		</td>
 		<td style="width:80%; text-align:center">
 			<div class="btn-group btn-group-toggle" data-toggle="buttons" style="width:100%">
-				<label id="useYY" class="btn btn-warning btn-lg active">
+				<label id="useYY" class="btn btn-warning btn-lg">
 					<input type="radio" name="jb-radio" id="usecoupon" onclick="usedY()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>사용가능</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</label>
-				<label id="useNN" class="btn btn-warning btn-lg active">
+				<label id="useNN" class="btn btn-warning btn-lg">
 					<input type="radio" name="jb-radio" id="unusecoupon" onclick="usedN()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>사용만료</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</label>
 			</div>

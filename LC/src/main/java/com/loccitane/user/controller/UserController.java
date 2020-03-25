@@ -1,6 +1,8 @@
 package com.loccitane.user.controller;
 
 import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -52,7 +54,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/agree", method=RequestMethod.POST) 
-	public ModelAndView agreeUser(UserVO userVO, HttpServletResponse response) throws Exception { 
+	public ModelAndView agreeUser(UserVO userVO) throws Exception { 
 		ModelAndView nextView = new ModelAndView("jsp/customerCouponList");
 		
 		UserVO userData = service.userLogin(userVO); 
@@ -69,8 +71,37 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/{usercode}", method = RequestMethod.GET)
-	public ModelAndView checkUser(@PathVariable("usercode") String usercode){
-		ModelAndView nextView = new ModelAndView("jsp/customerMain_bak");
+	public ModelAndView checkUser(@PathVariable("usercode") String usercode, HttpServletResponse response) throws Exception{
+		//ModelAndView nextView = new ModelAndView("jsp/customerMain_bak");
+		ModelAndView nextView = null;
+		UserVO userData = service.userCheck(usercode);
+		Date now = new Date();
+		if(userData == null) {
+			response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert('올바르지 않은 접속 경로 입니다. 가까운 매장 혹은 록시땅 고객센터(02-2054-0500)으로 연락 주시기 바랍니다.'); history.go(-1);</script>");
+            out.flush();
+		}else {
+			// 첫 접속 시도시 STARTDATE 입력 ( 멤버십정보를 노출시키기 위한 날짜 )
+			if(userData.getStartdate() == null) {
+				userData.setStartdate(now);
+				service.userUpdate(userData);
+			}
+			// 첫 접속 시도부터 15일 이후 날짜 계산
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(userData.getStartdate());
+			cal.add(Calendar.DATE, 15);
+			if(now.after(cal.getTime())) {
+				nextView = new ModelAndView("jsp/customerMain_bak");
+			}else{
+				if(userData.getEnddate() == null || userData.getEnddate().before(now)) {
+					nextView = new ModelAndView("jsp/membershipInfo");
+				}else if(userData.getEnddate().after(now)) {
+					nextView = new ModelAndView("jsp/customerMain_bak");
+				}
+			}
+		}
+				
 		nextView.addObject("usercode", usercode);
 		return nextView;
 	}
@@ -78,6 +109,31 @@ public class UserController {
 	@GetMapping("/logout/{usercode}") 
 	public ModelAndView logoutManager(@PathVariable("usercode") String usercode){ 
 		ModelAndView nextView = new ModelAndView("jsp/logout");
+		nextView.addObject("usercode", usercode);
+		
+		return nextView;
+	}
+	
+	@RequestMapping(value = "/login/{usercode}", method = RequestMethod.GET)
+	public ModelAndView login(@PathVariable("usercode") String usercode){ 
+		ModelAndView nextView = new ModelAndView("jsp/customerMain");
+		nextView.addObject("usercode", usercode);
+		
+		return nextView;
+	}
+	
+	@RequestMapping(value = "/login7/{usercode}", method = RequestMethod.GET)
+	public ModelAndView login7(@PathVariable("usercode") String usercode) throws Exception{ 
+		UserVO userData = service.userCheck(usercode);
+		Date now = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(now);
+		cal.add(Calendar.DATE, 7);
+		
+		userData.setEnddate(cal.getTime());
+		service.userUpdate(userData);
+		
+		ModelAndView nextView = new ModelAndView("jsp/customerMain");
 		nextView.addObject("usercode", usercode);
 		
 		return nextView;

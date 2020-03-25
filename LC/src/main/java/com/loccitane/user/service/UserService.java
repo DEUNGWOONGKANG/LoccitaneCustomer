@@ -11,4 +11,6 @@ public interface UserService {
 	int userAgree(UserVO userVO) throws Exception;
 	
 	int userSave(UserVO userVO) throws Exception;
+
+	int userUpdate(UserVO userData);
 }
