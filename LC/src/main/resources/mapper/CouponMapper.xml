@@ -83,12 +83,11 @@
 	
 	 <update id="couponUpdate" parameterType="com.loccitane.coupon.domain.CouponCoreVO">
 		update COUPON set
-			couponnamme = #{couponname},  
+			couponname = #{couponname},  
 			discountkind = #{discountkind},
 			discountvalue = #{discountvalue},
 			useminimum = #{useminimum},
 			discountmax = #{discountmax},
-			useyn = #{useyn},
 			couponinfo = #{couponinfo}
 			where 
 			couponcode = #{couponcode}

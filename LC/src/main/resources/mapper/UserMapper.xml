@@ -9,7 +9,7 @@
         where usercode = #{usercode} 
     </select>
     
-    <!-- 고객 로그인 -->
+    <!-- 고객 로그인 체크 -->
     <select id="userLogin" resultType="com.loccitane.user.domain.UserVO">
         select * from USERDATA
         where usercode = #{usercode}
@@ -23,8 +23,8 @@
     </update>
  	
  	<insert id="userSave" parameterType="com.loccitane.user.domain.UserVO">
-		insert into USERDATA (usercode, phone, agreeyn)
-		values (#{usercode},#{phone},#{agreeyn})
+		insert into USERDATA (usercode, phone, agreeyn, status)
+		values (#{usercode},#{phone},#{agreeyn}, #{status})
 	</insert>
 	
 	<update id="userUpdate" parameterType="com.loccitane.user.domain.UserVO">
@@ -33,6 +33,7 @@
     	,agreeyn = #{agreeyn}
     	,startdate = #{startdate} 
     	,enddate = #{enddate}
+    	,status = #{status}
     	where userseq = #{userseq}
     </update>
 

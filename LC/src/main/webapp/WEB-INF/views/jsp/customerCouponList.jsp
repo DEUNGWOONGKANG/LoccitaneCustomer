@@ -103,27 +103,20 @@ function click(use){
 	<c:if test="${coupon.useyn eq 'N' and coupon.startdate < today and coupon.enddate > today}">
 		<div id="container">
 			<div class="bubble">
-				<div class="rectangle"><h2>${coupon.couponname}</h2></div>
+				<div class="rectangle"><h2><b>${coupon.couponname}</b></h2></div>
 				<div class="triangle-l"></div>
 				<div class="triangle-r"></div>
 				<div class="info">
-					<h2>${coupon.couponinfo}</h2>
-					<c:if test="${!empty coupon.useminimum}">
-			      		${coupon.useminimum}원 이상 구매시
-			      	</c:if>
-			      	${coupon.discountvalue}
-			      	<c:if test="${coupon.discountkind == 1}">
-			      	원 할인
-			      	</c:if>
-			      	<c:if test="${coupon.discountkind == 2}">
-			      	% 할인
-			      	</c:if><br>
-			      	<c:if test="${!empty coupon.discountmax}">
-			      	(최대할인  ${coupon.discountmax}원 까지)
-			      	</c:if><br>
-					유효기간 : 
+					<h2>
 					<fmt:formatDate value="${coupon.startdate}" pattern="YYYY-MM-dd"/> ~
-					<fmt:formatDate value="${coupon.enddate}" pattern="YYYY-MM-dd"/>
+					<fmt:formatDate value="${coupon.enddate}" pattern="YYYY-MM-dd"/> 까지</h2>
+					<c:if test="${!empty coupon.useminimum}">
+			      		<fmt:formatNumber value="${coupon.useminimum}" pattern="#,###" />원 이상 구매시
+			      	</c:if>
+			      	<br>
+			      	<c:if test="${!empty coupon.discountmax}">
+			      	(최대할인  <fmt:formatNumber value="${coupon.discountmax}" pattern="#,###" />원 까지)
+			      	</c:if><br>
 				</div>
 			</div>
 		</div>
@@ -144,23 +137,16 @@ function click(use){
 				<div class="triangle-l"></div>
 				<div class="triangle-r"></div>
 				<div class="info">
-					<h2>${coupon.couponinfo}</h2>
-					<c:if test="${!empty coupon.useminimum}">
-			      		${coupon.useminimum}원 이상 구매시
-			      	</c:if>
-			      	${coupon.discountvalue}
-			      	<c:if test="${coupon.discountkind == 1}">
-			      	원 할인
-			      	</c:if>
-			      	<c:if test="${coupon.discountkind == 2}">
-			      	% 할인
-			      	</c:if><br>
-			      	<c:if test="${!empty coupon.discountmax}">
-			      	(최대할인  ${coupon.discountmax}원 까지)
-			      	</c:if><br>
-					유효기간 : 
+					<h2>
 					<fmt:formatDate value="${coupon.startdate}" pattern="YYYY-MM-dd"/> ~
-					<fmt:formatDate value="${coupon.enddate}" pattern="YYYY-MM-dd"/>
+					<fmt:formatDate value="${coupon.enddate}" pattern="YYYY-MM-dd"/> 까지</h2>
+					<c:if test="${!empty coupon.useminimum}">
+			      		<fmt:formatNumber value="${coupon.useminimum}" pattern="#,###" />원 이상 구매시
+			      	</c:if>
+			      	<br>
+			      	<c:if test="${!empty coupon.discountmax}">
+			      	(최대할인  <fmt:formatNumber value="${coupon.discountmax}" pattern="#,###" />원 까지)
+			      	</c:if><br>
 				</div>
 			</div>
 		</div>

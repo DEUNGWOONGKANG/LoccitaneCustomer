@@ -8,6 +8,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,9 +24,9 @@ import com.loccitane.user.service.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	@Inject
+	@Autowired
 	private UserService service; 
-	@Inject
+	@Autowired
 	private CouponService cpservice; 
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST) 
@@ -92,17 +93,17 @@ public class UserController {
 			cal.setTime(userData.getStartdate());
 			cal.add(Calendar.DATE, 15);
 			if(now.after(cal.getTime())) {
-				nextView = new ModelAndView("jsp/customerMain_bak");
+				nextView = new ModelAndView("jsp/customerMain");
 			}else{
 				if(userData.getEnddate() == null || userData.getEnddate().before(now)) {
 					nextView = new ModelAndView("jsp/membershipInfo");
 				}else if(userData.getEnddate().after(now)) {
-					nextView = new ModelAndView("jsp/customerMain_bak");
+					nextView = new ModelAndView("jsp/customerMain");
 				}
 			}
+			nextView.addObject("usercode", usercode);
 		}
 				
-		nextView.addObject("usercode", usercode);
 		return nextView;
 	}
 	//로그아웃
@@ -138,4 +139,13 @@ public class UserController {
 		
 		return nextView;
 	}
+	
+	@GetMapping("/test/{usercode}") 
+	public ModelAndView loginTest(@PathVariable("usercode") String usercode){ 
+		ModelAndView nextView = new ModelAndView("jsp/customerMain");
+		nextView.addObject("usercode", usercode);
+		
+		return nextView;
+	}
+	
 }

@@ -22,14 +22,14 @@
 <bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
 	<!--  운영용 -->
-	<!-- <property name="url" value="jdbc:mariadb://localhost:3306/imrnortaty" />
-	<property name="username" value="imrnortaty" />
-	<property name="password" value="Conc3n200!" /> -->
-	<!-- 운영용 -->
-	<!-- 로컬용 -->
-	<property name="url" value="jdbc:mariadb://203.245.44.51:3306/imrnortaty" />
+	<property name="url" value="jdbc:mariadb://localhost:3306/imrnortaty" />
 	<property name="username" value="imrnortaty" />
 	<property name="password" value="Conc3n200!" />
+	<!-- 운영용 -->
+	<!-- 로컬용 -->
+	<!-- <property name="url" value="jdbc:mariadb://203.245.44.51:3306/imrnortaty" />
+	<property name="username" value="imrnortaty" />
+	<property name="password" value="Conc3n200!" /> -->
 	<!-- 로컬용 -->
 </bean>
  <!--  mybatis와 스프링 연동작을 하기위한 SqlsessionFactory == DB연결 및 SQL의 실행을 대한객체 -->
@@ -51,9 +51,6 @@
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>    
     </bean>
- 
-    <context:component-scan base-package="com.loccitane"></context:component-scan>
-    
     <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource"> 
     	<constructor-arg ref="dataSourceSpied" />
 		<property name="logFormatter"> 

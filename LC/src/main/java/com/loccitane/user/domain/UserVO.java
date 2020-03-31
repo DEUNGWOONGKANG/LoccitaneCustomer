@@ -7,9 +7,9 @@ public class UserVO {
 	private String usercode;
 	private String phone;
 	private String agreeyn;
-	private String infoview;
 	private Date startdate;
 	private Date enddate;
+	private String status;
 	
 	public UserVO() {}
 
@@ -45,14 +45,6 @@ public class UserVO {
 		this.agreeyn = agreeyn;
 	}
 
-	public String getInfoview() {
-		return infoview;
-	}
-
-	public void setInfoview(String infoview) {
-		this.infoview = infoview;
-	}
-
 	public Date getStartdate() {
 		return startdate;
 	}
@@ -68,7 +60,13 @@ public class UserVO {
 	public void setEnddate(Date enddate) {
 		this.enddate = enddate;
 	}
-	
-	
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 }
