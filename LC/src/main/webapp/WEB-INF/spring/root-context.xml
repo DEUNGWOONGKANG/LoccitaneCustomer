@@ -52,7 +52,7 @@
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>    
     </bean>
     <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource"> 
-    	<constructor-arg ref="dataSourceSpied" />
+    	<constructor-arg ref="dataSourceSpied"/>
 		<property name="logFormatter"> 
 			<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter"> 
 				<property name="loggingType" value="MULTI_LINE" /> 
