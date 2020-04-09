@@ -38,16 +38,23 @@ public class UserController {
             out.println("<script>alert('올바르지 않은 접속 경로 입니다. 가까운 매장 혹은 록시땅 고객센터(02-2054-0500)으로 연락 주시기 바랍니다.'); history.go(-1);</script>");
             out.flush();
 		}else { 
-			if(userData.getAgreeyn().equals("Y")) {
-				nextView = new ModelAndView("jsp/customerCouponList");
-				List<CouponVO> couponList = cpservice.getUserCoupon(userData.getUsercode()); 
-				nextView.addObject("userData", userData); 
-				nextView.addObject("couponList", couponList); 
-				nextView.addObject("tel", userVO.getPhone());
-			}else{
-				nextView = new ModelAndView("jsp/customerAgreePage");
-				nextView.addObject("userData", userData); 
-				nextView.addObject("tel", userVO.getPhone());
+			if(userData.getStatus().equals("9")) {
+				response.setContentType("text/html; charset=UTF-8");
+	            PrintWriter out = response.getWriter();
+	            out.println("<script>alert('휴면 사용자 입니다. 가까운 매장 혹은 록시땅 고객센터(02-2054-0500)으로 연락 주시기 바랍니다.'); history.go(-1);</script>");
+	            out.flush();
+			}else if(userData.getStatus().equals("1")) {
+				if(userData.getAgreeyn().equals("Y")) {
+					nextView = new ModelAndView("jsp/customerCouponList");
+					List<CouponVO> couponList = cpservice.getUserCoupon(userData.getUsercode()); 
+					nextView.addObject("userData", userData); 
+					nextView.addObject("couponList", couponList); 
+					nextView.addObject("tel", userVO.getPhone());
+				}else{
+					nextView = new ModelAndView("jsp/customerAgreePage");
+					nextView.addObject("userData", userData); 
+					nextView.addObject("tel", userVO.getPhone());
+				}
 			}
 		}
 		return nextView;
