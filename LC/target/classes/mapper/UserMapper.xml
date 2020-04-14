@@ -3,17 +3,38 @@
 
 <mapper namespace="UserMapper">
     
-    <!-- 랜딩페이지 고객 userid 체크 -->
+    <!-- 랜딩페이지 고객 usercode 체크 -->
     <select id="userCheck" resultType="com.loccitane.user.domain.UserVO">
-        select * from userdata
-        where userid = #{userid} 
+        select * from USERDATA
+        where usercode = #{usercode} 
     </select>
     
-    <!-- 고객 로그인 -->
+    <!-- 고객 로그인 체크 -->
     <select id="userLogin" resultType="com.loccitane.user.domain.UserVO">
-        select * from userdata
-        where userid = #{userid}
-          and phone like '%'+#{phone}
+        select * from USERDATA
+        where usercode = #{usercode}
+          and phone = #{phone}
     </select>
- 
+    
+    <update id="userAgree" parameterType="com.loccitane.user.domain.UserVO">
+    	update USERDATA
+    	set agreeyn = #{agreeyn}
+    	where userseq = #{userseq}
+    </update>
+ 	
+ 	<insert id="userSave" parameterType="com.loccitane.user.domain.UserVO">
+		insert into USERDATA (usercode, phone, agreeyn, status)
+		values (#{usercode},#{phone},#{agreeyn}, #{status})
+	</insert>
+	
+	<update id="userUpdate" parameterType="com.loccitane.user.domain.UserVO">
+    	update USERDATA
+    	set phone = #{phone}
+    	,agreeyn = #{agreeyn}
+    	,startdate = #{startdate} 
+    	,enddate = #{enddate}
+    	,status = #{status}
+    	where userseq = #{userseq}
+    </update>
+
 </mapper>
